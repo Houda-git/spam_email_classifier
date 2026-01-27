@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual env
+.venv/
+ml/
+
+# OS / editor
+.DS_Store
+.vscode/
+
+# Outputs (optional)
+model/*.joblib
