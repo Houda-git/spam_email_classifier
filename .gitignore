@@ -10,5 +10,4 @@ ml/
 .DS_Store
 .vscode/
 
-# Outputs (optional)
-model/*.joblib
+
