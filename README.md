@@ -87,6 +87,14 @@ pip install -r requirements_api.txt
 python3 src/train.py
 ```
 
+#### Pretrained Model (Already Saved)
+A pretrained model artifact is already included in the repository under:
+
+- `model/`
+
+So you can run the **app/API directly** without retraining or reloading anything manually.  
+If you want, you can also **re-save/regenerate the model** by running `train.py`.  
+
 
 ## How to Run (Dockerized)
 
