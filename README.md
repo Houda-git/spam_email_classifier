@@ -4,15 +4,11 @@ This repository is a **simple but complete end-to-end ML project** that I built 
 
 The goal is straightforward: **classify English emails as spam or ham** using a strong classical baseline, then **package it for deployment** (not only keep it running locally).
 
----
 
 ## Dataset
 - The dataset was taken from **Kaggle** (email spam classification dataset).
 - It contains **English emails only**, which means this model is expected to work correctly **only for English inputs** (or at least much better for English than other languages).
 
-> Note: the dataset file may not be committed to this repository. Put the CSV under `data/` and make sure `load_clean_data()` points to it.
-
----
 
 ## What’s inside
 ### ML Pipeline
@@ -34,7 +30,6 @@ The goal is straightforward: **classify English emails as spam or ham** using a 
   - metrics comparison table image
   - top TF-IDF features for the best model (feature weights)
 
----
 
 ## Why this project matters (for me)
 I intentionally started with **classic ML + TF-IDF** because it’s fast, interpretable, and a strong baseline.
@@ -43,9 +38,8 @@ Then I pushed it further by trying to **deploy it**, so the project is not “ju
 This repo is my starting point before moving to:
 - embeddings + transformers
 - LLM-based classification pipelines
-- MLOps practices (tracking, CI, model versioning)
+- MLOps practices 
 
----
 
 ## Repository Structure
 ```
@@ -57,8 +51,7 @@ This repo is my starting point before moving to:
 ├── requirements_api.txt    # API dependencies  
 ├── requirements_app.txt    # App dependencies  
 ├── assets/                 # Generated plots and visuals  
-├── data/                   # Kaggle dataset CSV (place it here)  
-├── ml/                     # Training / evaluation code  
+├── data/                   # Kaggle dataset CSV  
 ├── model/                  # Saved model artifacts  
 └── src/                    # Helpers / utilities (loading, cleaning, shared code)  
 ```
@@ -103,6 +96,11 @@ Training also generates portfolio-friendly figures under `assets/`, such as:
 - model comparison table
 - confusion matrices (one per model)
 - top TF-IDF features (best model)
+
+## Feedback
+If you have any comments, suggestions, or ideas to improve this project, feel free to share them with me.
+
+**LinkedIn:** https://www.linkedin.com/in/houda-rachidi-662822321/
 
 ## Author
 Houda Rachidi — building this as a foundation to go deeper into AI, Data, and LLM-based systems.
