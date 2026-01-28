@@ -82,7 +82,3 @@ PrecisionRecallDisplay.from_predictions(y_test, y_score)
 plt.title("Precision-Recall Curve")
 plt.show()
 
-# Save the trained model
-Path("model").mkdir(exist_ok=True)
-joblib.dump(model,"model/spam_tfidf_loreg.joblib")
-
