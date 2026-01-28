@@ -29,6 +29,23 @@ The goal is straightforward: **classify English emails as spam or ham** using a 
   - confusion matrices (one per model)
   - metrics comparison table image
   - top TF-IDF features for the best model (feature weights)
+ 
+
+## Model Evolution (Baseline → Improved)
+
+I started with a **baseline spam classifier** using **TF-IDF + Logistic Regression** (`class_weight="balanced"`).  
+This gave me a strong and interpretable first model and helped validate the end-to-end pipeline (cleaning → training → evaluation → saving → inference).
+
+After that, I wanted to **improve performance**, so I trained and compared multiple classic ML classifiers using the same TF-IDF configuration:
+- Logistic Regression (balanced)
+- MultinomialNB
+- ComplementNB
+- SGDClassifier (log loss)
+- **LinearSVC + calibration**
+
+The best-performing model on my test split (based on **PR-AUC**, which is well-suited for imbalanced spam detection) was:
+
+**LinearSVC + Calibrated**, achieving the highest PR-AUC among all candidates.
 
 
 ## Why this project matters (for me)
