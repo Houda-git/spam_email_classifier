@@ -65,7 +65,11 @@ ConfusionMatrixDisplay.from_predictions(
     cmap = "Blues"
 )
 plt.title("Confusion Matrix")
-plt.show()
+PLOTS_DIR = ROOT / "assets"
+PLOTS_DIR.mkdir(exist_ok=True)
+
+plt.savefig(PLOTS_DIR / "confusion_matrix.png", dpi=250)
+plt.close()
 
 # Probabilities of the spam class
 y_score = model.predict_proba(X_test)[:, 1]
@@ -80,5 +84,6 @@ print(f"ROC AUC: {roc_auc:.4f}")
 # To display the PR curve 
 PrecisionRecallDisplay.from_predictions(y_test, y_score)
 plt.title("Precision-Recall Curve")
-plt.show()
+plt.savefig(PLOTS_DIR / "precision_recall_curve.png", dpi=250)
+plt.close()
 
