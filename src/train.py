@@ -31,7 +31,7 @@ model = Pipeline([
         lowercase=True,
         stop_words="english",
         ngram_range=(1,2), # include single words as well as two-word phrases
-        min_df= 2, # drops extremely rare words
+        min_df= 1, # drops extremely rare words
         max_df = 0.95 # drops words that appear in every email(not useful)
     )),
     ("clf", CalibratedClassifierCV(
@@ -40,7 +40,6 @@ model = Pipeline([
         cv=3
         ))
 ])
-
 # Training the model 
 model.fit(X_train,y_train)
 
