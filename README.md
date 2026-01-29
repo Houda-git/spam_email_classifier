@@ -102,6 +102,8 @@ If you want, you can also **re-save/regenerate the model** by running `train.py`
 ```
 docker compose up --build
 
+Open: http://localhost:8501
+
 ```
 
 ### Launch the Streamlit app

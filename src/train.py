@@ -3,7 +3,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import confusion_matrix, classification_report, average_precision_score, roc_auc_score, ConfusionMatrixDisplay, PrecisionRecallDisplay
+from sklearn.svm import LinearSVC
+from sklearn.calibration import CalibratedClassifierCV
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report, average_precision_score, roc_auc_score, ConfusionMatrixDisplay, PrecisionRecallDisplay
 import joblib 
 from pathlib import Path
 import matplotlib.pyplot as plt
@@ -32,10 +34,11 @@ model = Pipeline([
         min_df= 2, # drops extremely rare words
         max_df = 0.95 # drops words that appear in every email(not useful)
     )),
-    ("clf", LogisticRegression( #for text classification
-        max_iter=2000,
-        class_weight="balanced"
-    ))
+    ("clf", CalibratedClassifierCV(
+        estimator=LinearSVC(),
+        method="sigmoid",
+        cv=3
+        ))
 ])
 
 # Training the model 
@@ -45,6 +48,7 @@ model.fit(X_train,y_train)
 y_pred = model.predict(X_test)
 
 # Evaluation using the confusion matrix and the classification report 
+print(accuracy_score(y_test,y_pred))
 print(confusion_matrix(y_test, y_pred))
 print(classification_report(y_test, y_pred, target_names=["ham","spam"]))
 
